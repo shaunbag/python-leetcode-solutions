@@ -108,3 +108,34 @@ def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
                     item_from_nums2 = nums2.pop(0)
                     nums1[num] = item_from_nums2
     nums1.sort()
+
+
+def rotate(nums: list[int], k: int) -> None:
+    """
+    Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+    """
+    for i in range(0, k):
+        item = nums.pop(len(nums) - 1)
+        nums.insert(0, item)
+
+
+def singleNumber(nums: list[int]) -> int:
+    """
+        this method finds the only single number in an array containing duplicates all bar one number
+    """
+    for num in nums:
+        count = nums.count(num)
+        if count == 1:
+            return num
+
+
+def moveZeroes(nums: list[int]) -> None:
+    """
+     using two pointer techniques we move all th 0's to the end of the nums list
+    """
+    slow = 0
+    for fast in range(0, len(nums)):
+        if nums[fast] != 0:
+            nums[slow], nums[fast] = nums[fast], nums[slow]
+            slow += 1
+
